@@ -3,7 +3,7 @@ import laptopReducer from './laptop/laptopSlice';
 
 const store = configureStore({
   reducer: {
-    laptops: laptopReducer, 
+    laptops: laptopReducer,
   },
 });
 
