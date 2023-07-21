@@ -24,7 +24,7 @@ const Login = () => {
       dispatch(userSession({ username: usernameState }, 'login'));
     }
   };
-
+console.log(userData)
   const setUsername = (e) => {
     setUsernameState(e.target.value);
   };
