@@ -4,6 +4,19 @@ import { Link } from 'react-router-dom';
 const Laptop = (props) => {
   const { obj } = props;
 
+  Laptop.propTypes = {
+    obj: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      photoUrl: PropTypes.string.isRequired,
+      modelYear: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      romSize: PropTypes.number.isRequired,
+      ramSize: PropTypes.number.isRequired,
+    }).isRequired,
+  };
+
   return (
     <div className="laptop-card">
       <div className="profile-pic-container">
@@ -24,19 +37,6 @@ const Laptop = (props) => {
 
     </div>
   );
-};
-
-Laptop.propTypes = {
-  obj: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    photoUrl: PropTypes.string.isRequired,
-    modelYear: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    romSize: PropTypes.number.isRequired,
-    ramSize: PropTypes.number.isRequired,
-  }).isRequired,
 };
 
 export default Laptop;
