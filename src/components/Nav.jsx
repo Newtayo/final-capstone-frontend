@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { logout } from '../redux/user/sessionSlice';
 
 const Nav = () => {
-//   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [showMenu, setShowMenu] = useState(false);
-  const isLoggedIn = true;
 
-  //   const isLoggedIn = JSON.parse(window.localStorage.getItem('logged_in'));
+  const isLoggedIn = JSON.parse(window.localStorage.getItem('logged_in'));
 
   useEffect(() => {
     window.addEventListener('resize', () => {
@@ -37,12 +38,12 @@ const Nav = () => {
     }
   };
 
-  //   const clearUserData = () => {
-  //     localStorage.clear();
-  //     // dispatch(logout());
-  //     toggleMenu();
-  //     navigate('/');
-  //   };
+  const clearUserData = () => {
+    localStorage.clear();
+    dispatch(logout());
+    toggleMenu();
+    navigate('/');
+  };
 
   return (
     <header>
@@ -105,7 +106,7 @@ const Nav = () => {
         )}
 
         <div className="logout-sm">
-          {/* {isLoggedIn && (
+          {isLoggedIn && (
             <button
               className="logout-btn"
               type="button"
@@ -113,7 +114,7 @@ const Nav = () => {
             >
               Logout
             </button>
-          )} */}
+          )}
 
           <ul className="socialLinks">
             <li>
