@@ -1,20 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Home from './components/Home';
 import Nav from './components/Nav';
 import Login from './components/user-sessions/login';
 import Signup from './components/user-sessions/signup';
+import { fetchLaptops } from './redux/laptop/laptopSlice';
+import { userSession } from './redux/user/sessionSlice';
 import './App.css';
 
-const App = () => (
-  <Router>
-    <Nav />
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/user/login" element={<Login />} />
-      <Route path="/user/signup" element={<Signup />} />
-    </Routes>
-  </Router>
-);
+const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchLaptops());
+    if (localStorage.getItem('user')) {
+      const username = localStorage.getItem('user');
+      dispatch(userSession({ username }, 'login'));
+    }
+  }, [dispatch]);
+  return (
+    <Router>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/user/signup" element={<Signup />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;

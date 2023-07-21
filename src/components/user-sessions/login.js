@@ -24,7 +24,6 @@ const Login = () => {
       dispatch(userSession({ username: usernameState }, 'login'));
     }
   };
-
   const setUsername = (e) => {
     setUsernameState(e.target.value);
   };
@@ -46,7 +45,7 @@ const Login = () => {
       if (!userData) {
         dispatch(userSession({ username: user }, 'login'));
       }
-      redirection('/');
+      redirection('home');
     }
   }, [userData.message, userData.logged_in, redirection, dispatch, userData, clicked]);
 
