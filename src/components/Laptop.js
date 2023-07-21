@@ -23,7 +23,7 @@ const Laptop = (props) => {
         <img src={obj.photoUrl} alt="Laptop profile portrait" />
       </div>
 
-      <Link to={`/laptop/${obj.id}`}><h2>{`${obj.name}`}</h2></Link>
+      <Link to={`/laptop/${obj.id}`}><h2>{obj.name}</h2></Link>
 
       <div className="divider">
         {
