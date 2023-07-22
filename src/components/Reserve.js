@@ -81,6 +81,8 @@ const Reserve = () => {
     'Canada',
     'Madrid',
     'Dubai',
+    'Lagos',
+    'Abuja',
   ];
 
   const handleSubmit = (e) => {
