@@ -52,6 +52,12 @@ const SingleLaptop = () => {
             <span>{laptop.ramSize}</span>
           </li>
         </ul>
+
+        <Link
+          className="makeReservationButton"
+          to="/reserve"
+          state={{ chosenLaptopId: laptop.id }}
+        ></Link>
       </div>
     </section>
   );
