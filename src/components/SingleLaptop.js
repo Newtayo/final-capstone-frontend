@@ -57,7 +57,12 @@ const SingleLaptop = () => {
           className="makeReservationButton"
           to="/reserve"
           state={{ chosenLaptopId: laptop.id }}
-        ></Link>
+        >
+          <button type="button">
+          Make reservation
+          </button>
+            
+        </Link>
       </div>
     </section>
   );
