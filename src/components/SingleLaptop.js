@@ -36,8 +36,8 @@ const SingleLaptop = () => {
           <li>
             <span>Price: </span>
             <span>
-              {laptop.price}
               $
+              {laptop.price}
             </span>
           </li>
           <li>
