@@ -15,9 +15,11 @@ const Reservations = () => {
   }, [isLoggedIn, navigate]);
 
 
-
+  let reservations = useSelector((state) => state.users.reservations);
+  const laptops = useSelector((state) => state.laptops.laptops);
 
   if (isLoggedIn) {
+    reservations = reservations.sort(sortReservations);
     return (
       <section className="reservations-page">
         <h1>My reservations</h1>
