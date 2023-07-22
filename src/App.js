@@ -9,6 +9,7 @@ import Signup from './components/user-sessions/signup';
 import { fetchLaptops } from './redux/laptop/laptopSlice';
 import { userSession } from './redux/user/sessionSlice';
 import SingleLaptop from './components/SingleLaptop';
+import Reservation from './components/Reservation';
 import './App.css';
 import Reserve from './components/Reserve';
 
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/user/signup" element={<Signup />} />
         <Route path="/laptop/:id" element={<SingleLaptop />} />
         <Route path="/reserve" element={<Reserve />} />
+        <Route path="/reservations" element={<Reservation />} />
       </Routes>
     </Router>
   );
