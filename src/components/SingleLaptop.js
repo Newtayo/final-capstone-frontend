@@ -24,6 +24,7 @@ const SingleLaptop = () => {
           className="detailsPageLaptopPhoto"
         />
       </div>
+      <div className="laptop-details-container"></div>
     </section>
   );
 };
