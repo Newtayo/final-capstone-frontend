@@ -113,7 +113,7 @@ const Reserve = () => {
               key={laptop.id + laptop.name}
               value={laptop.id}
             >
-              {`${laptop.name}`}
+              {laptop.name}
             </option>
           ))}
         </select>
