@@ -10,6 +10,7 @@ import { fetchLaptops } from './redux/laptop/laptopSlice';
 import { userSession } from './redux/user/sessionSlice';
 import SingleLaptop from './components/SingleLaptop';
 import './App.css';
+import Reserve from './components/Reserve';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/user/signup" element={<Signup />} />
         <Route path="/laptop/:id" element={<SingleLaptop />} />
+        <Route path="/reserve" element={<Reserve />} />
       </Routes>
     </Router>
   );
