@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { fetchReservation, setMsgAction } from '../redux/user/session-redux';
+import { fetchReservation, setMsgAction } from '../redux/user/sessionSlice';
 
 const Reserve = () => {
   const { laptops } = useSelector((state) => state.laptops);
