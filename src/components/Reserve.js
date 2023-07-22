@@ -82,7 +82,7 @@ const Reserve = () => {
     'Madrid',
     'Dubai',
     'Lagos',
-    'Abuja'
+    'Abuja',
   ];
 
   const handleSubmit = (e) => {
