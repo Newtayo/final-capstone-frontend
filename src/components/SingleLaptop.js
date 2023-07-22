@@ -24,7 +24,11 @@ const SingleLaptop = () => {
           className="detailsPageLaptopPhoto"
         />
       </div>
-      <div className="laptop-details-container"></div>
+      <div className="laptop-details-container">
+      <h1>
+          {laptop.name}
+        </h1>
+      </div>
     </section>
   );
 };
