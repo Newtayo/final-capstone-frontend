@@ -16,7 +16,7 @@ const SingleLaptop = () => {
     return <div className="loading">Element not found</div>;
   }
   return (
-    <div>SingleLaptop</div>
+    <section className="laptop-details-page"></section>
   );
 };
 
