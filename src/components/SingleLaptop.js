@@ -16,7 +16,15 @@ const SingleLaptop = () => {
     return <div className="loading">Element not found</div>;
   }
   return (
-    <section className="laptop-details-page"></section>
+    <section className="laptop-details-page">
+      <div className="laptop-photo-container">
+        <img
+          src={laptop.photoUrl}
+          alt="laptop"
+          className="detailsPageLaptopPhoto"
+        />
+      </div>
+    </section>
   );
 };
 
