@@ -31,6 +31,27 @@ const SingleLaptop = () => {
         <p className="laptop-description">
           {laptop.description}
         </p>
+        <ul className="details">
+          <li>
+            <span>Price: </span>
+            <span>
+              {laptop.price}
+              $
+            </span>
+          </li>
+          <li>
+            <span>Model Year: </span>
+            <span>{laptop.modelYear}</span>
+          </li>
+          <li>
+            <span>Rom Size: </span>
+            <span>{laptop.romSize}</span>
+          </li>
+          <li>
+            <span>Ram Size: </span>
+            <span>{laptop.ramSize}</span>
+          </li>
+        </ul>
       </div>
     </section>
   );
