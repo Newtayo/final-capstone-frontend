@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 // import { FaFacebookF, FaInstagram, FaTwitter } from 'react-icons/fa';
 import { IoChevronForwardCircleOutline } from 'react-icons/io5';
@@ -25,7 +26,7 @@ const SingleLaptop = () => {
         />
       </div>
       <div className="laptop-details-container">
-      <h1>
+        <h1>
           {laptop.name}
         </h1>
         <p className="laptop-description">
@@ -59,7 +60,7 @@ const SingleLaptop = () => {
           state={{ chosenLaptopId: laptop.id }}
         >
           <button type="button">
-          Make reservation
+            Make reservation
           </button>
           <IoChevronForwardCircleOutline className="reserve-arrow-icon" />
         </Link>
