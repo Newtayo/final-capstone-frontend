@@ -61,7 +61,7 @@ const SingleLaptop = () => {
           <button type="button">
           Make reservation
           </button>
-            
+          <IoChevronForwardCircleOutline className="reserve-arrow-icon" />
         </Link>
       </div>
     </section>
