@@ -8,6 +8,7 @@ import Login from './components/user-sessions/login';
 import Signup from './components/user-sessions/signup';
 import { fetchLaptops } from './redux/laptop/laptopSlice';
 import { userSession } from './redux/user/sessionSlice';
+import SingleLaptop from './components/SingleLaptop';
 import './App.css';
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/" element={<Login />} />
         <Route path="/home" element={<Home />} />
         <Route path="/user/signup" element={<Signup />} />
+        <Route path="/laptop/:id" element={<SingleLaptop />} />
       </Routes>
     </Router>
   );
