@@ -28,6 +28,9 @@ const SingleLaptop = () => {
       <h1>
           {laptop.name}
         </h1>
+        <p className="laptop-description">
+          {laptop.description}
+        </p>
       </div>
     </section>
   );
