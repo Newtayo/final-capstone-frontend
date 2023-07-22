@@ -8,6 +8,7 @@ const SingleLaptop = () => {
   const laptop = useSelector((state) => state.laptops.laptops).find(
     (item) => item.id === Number(id),
   );
+  const state = useSelector((state) => state.laptops.laptops);
   return (
     <div>SingleLaptop</div>
   );
