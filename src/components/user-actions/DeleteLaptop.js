@@ -1,8 +1,16 @@
 import React from 'react'
-import { UseSelector } from 'react-redux/es/hooks/useSelector'
+import { useSelector, useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom';
+import { destroyLaptop } from '../../redux/laptop/laptopSlice';
 
 const DeleteLaptop = () => {
     const availableLaptops = useSelector((store) => store.laptops.laptops);
+    const dispatch = useDispatch()
+
+    const removeData = (e) => {
+        const id = Number(e.target.value);
+        dispatch(destroyLaptop(id));
+      };
   return (
     <section className="delete-laptop-page">
     <h1>Delete a laptop</h1>
