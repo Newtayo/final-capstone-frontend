@@ -2,16 +2,19 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { destroyLaptop } from '../../redux/laptop/laptopSlice';
-import { useNavigation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+
 
 const DeleteLaptop = () => {
-    const availableLaptops = useSelector((store) => store.laptops.laptops);
     const dispatch = useDispatch()
+    const availableLaptops = useSelector((store) => store.laptops.laptops);
+    const isLoggedIn = JSON.parse(window.localStorage.getItem('logged_in'));
     const redirection = useNavigate();
     useEffect(() => {
         if (!isLoggedIn) {
           setTimeout(() => {
-            redirection('/user/login');
+            redirection('/');
           }, 2000);
         }
       });
