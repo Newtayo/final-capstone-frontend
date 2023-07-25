@@ -11,6 +11,7 @@ import { userSession } from './redux/user/sessionSlice';
 import SingleLaptop from './components/SingleLaptop';
 import AddLaptop from './components/user-actions/AddLaptop';
 import Reservation from './components/Reservation';
+import DeleteLaptop from './components/user-actions/DeleteLaptop';
 import './App.css';
 import Reserve from './components/Reserve';
 
@@ -34,6 +35,7 @@ const App = () => {
         <Route path="/laptop/:id" element={<SingleLaptop />} />
         <Route path="/reserve" element={<Reserve />} />
         <Route path="/reservations" element={<Reservation />} />
+        <Route path="/delete_laptop" element={<DeleteLaptop />} />
       </Routes>
     </Router>
   );
