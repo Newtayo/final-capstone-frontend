@@ -24,9 +24,22 @@ import { addLaptop, clear } from '../../redux/laptop/laptopSlice';
   });
 
   const redirection = useNavigate();
-  
+
   const returnMsg = useSelector((state) => state.laptops);
 
   const isLoggedIn = JSON.parse(window.localStorage.getItem('logged_in'));
 
+  const postData = () => {
+    const data = {
+      name,
+      photo_url: photoUrl,
+      model_year: modelYear,
+      price,
+      rom_size: romSize,
+      ram_size: ramSize,
+      description,
+    };
+    dispatch(addLaptop(data));
+  };
+  
   }
