@@ -41,5 +41,29 @@ import { addLaptop, clear } from '../../redux/laptop/laptopSlice';
     };
     dispatch(addLaptop(data));
   };
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      setTimeout(() => {
+        redirection('/user/login');
+      }, 2000);
+    }
+    if (returnMsg) {
+      if (returnMsg.message === 'Laptop has been created successfully!') {
+        setOverlay(true);
+        setTimeout(() => {
+          dispatch(clear());
+          redirection('/');
+        }, 2500);
+      } else if (returnMsg.message === 'Laptop already exists') {
+        setOverlay(true);
+        setTimeout(() => {
+          dispatch(clear());
+          setOverlay(false);
+        }, 2500);
+      }
+    }
+  }, [returnMsg, dispatch, redirection, isLoggedIn]);
+
   
   }
