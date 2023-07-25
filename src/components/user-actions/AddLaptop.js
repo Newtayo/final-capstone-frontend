@@ -172,4 +172,10 @@ import { addLaptop, clear } from '../../redux/laptop/laptopSlice';
       </section>
     );
   }
+
+  return (
+    <div className="popup-message">
+      <p>Please login to view this page</p>
+    </div>
+  );
   }
