@@ -24,7 +24,9 @@ import { addLaptop, clear } from '../../redux/laptop/laptopSlice';
   });
 
   const redirection = useNavigate();
+  
   const returnMsg = useSelector((state) => state.laptops);
 
+  const isLoggedIn = JSON.parse(window.localStorage.getItem('logged_in'));
 
   }
