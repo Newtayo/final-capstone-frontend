@@ -15,5 +15,12 @@ import { addLaptop, clear } from '../../redux/laptop/laptopSlice';
   const [romSize, setRomSize] = useState('');
   const [ramSize, setRamSize] = useState('');
   const [description, setDescription] = useState('');
+
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: 'onChange',
+  });
   
   }
