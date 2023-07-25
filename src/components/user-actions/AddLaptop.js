@@ -24,7 +24,7 @@ import { addLaptop, clear } from '../../redux/laptop/laptopSlice';
   });
 
   const redirection = useNavigate();
-
+  const returnMsg = useSelector((state) => state.laptops);
 
 
   }
