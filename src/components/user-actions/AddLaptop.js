@@ -22,5 +22,9 @@ import { addLaptop, clear } from '../../redux/laptop/laptopSlice';
   } = useForm({
     mode: 'onChange',
   });
-  
+
+  const redirection = useNavigate();
+
+
+
   }
