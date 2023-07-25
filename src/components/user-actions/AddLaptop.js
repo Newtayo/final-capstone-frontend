@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addLaptop, clear } from '../../redux/laptop/laptopSlice';
 
-  const AddLaptop = () => {
-    const dispatch = useDispatch();
+const AddLaptop = () => {
+  const dispatch = useDispatch();
 
   const [overlay, setOverlay] = useState(false);
   const [name, setName] = useState('');
@@ -178,4 +178,6 @@ import { addLaptop, clear } from '../../redux/laptop/laptopSlice';
       <p>Please login to view this page</p>
     </div>
   );
-  }
+};
+
+export default AddLaptop;
