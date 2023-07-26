@@ -27,7 +27,7 @@ const Signup = () => {
       setValidDisplayState(true);
       setExistState(false);
     } else if (usernameState.length >= 6) {
-      dispatch(userSession({ username: usernameState }, 'signup'));
+      dispatch(userSession({ username: usernameState }));
     }
   };
 

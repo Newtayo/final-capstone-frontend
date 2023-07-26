@@ -39,7 +39,7 @@ const userReducer = createSlice({
     builder
       .addCase(userSession.fulfilled, (state, action) => ({
         ...state,
-        cars: action.payload,
+        user: action.payload,
       }));
     builder.addCase(
       userSession.rejected,
@@ -48,30 +48,30 @@ const userReducer = createSlice({
         error: action.payload,
       }),
     );
-    builder.addCase(userSession.fulfilled, (state, action) => ({
-      ...state,
-      messages: action.payload,
-    }));
+    // builder.addCase(userSession.fulfilled, (state, action) => ({
+    //   ...state,
+    //   messages: action.payload,
+    // }));
   },
 });
 
 
-const fetchReservation = (data) => async (dispatch) => {
-  await fetch(CREATE_RESERVATION_LINK, {
-    method: 'post',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  })
-    .then((result) => result.json())
-    .then((res) => {
-      const result = {
-        msg: res.message,
-        newReservation: res.reservation_obj,
-      };
-      dispatch(setReservationAction(result));
-    });
-};
+// const fetchReservation = (data) => async (dispatch) => {
+//   await fetch(CREATE_RESERVATION_LINK, {
+//     method: 'post',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify(data),
+//   })
+//     .then((result) => result.json())
+//     .then((res) => {
+//       const result = {
+//         msg: res.message,
+//         newReservation: res.reservation_obj,
+//       };
+//       dispatch(setReservationAction(result));
+//     });
+// };
 
 export default userReducer;
