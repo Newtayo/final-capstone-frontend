@@ -22,6 +22,8 @@ const Login = () => {
       setExistState(false);
     } else {
       dispatch(userSession({ obj:{username: usernameState}, endpoint:'login'}));
+      console.log(usernameState)
+      console.log(userData.logged_in)
     }
   };
   const setUsername = (e) => {

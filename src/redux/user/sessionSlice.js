@@ -28,6 +28,7 @@ const initialState = {
   reservations: [],
   message: '',
   creationMsg: '',
+  logged_in: false,
 };
 
 // Reducer
@@ -41,24 +42,25 @@ const userReducer = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(userSession.fulfilled, (state, action) => ({
-        ...state,
-        user: action.payload,
-      }));
-    builder.addCase(
-      userSession.rejected,
-      (state, action) => ({
+      .addCase(userSession.fulfilled, (state, action) => {
+        const { logged_in, ...userData } = action.payload;
+        return {
+          ...state,
+          user: userData,
+          logged_in,
+        };
+      })
+      .addCase(userSession.rejected, (state, action) => ({
         ...state,
         error: action.payload,
-      }),
-    );
+      }));
+  },
+});
     // builder.addCase(userSession.fulfilled, (state, action) => ({
     //   ...state,
     //   messages: action.payload,
     // }));
-  },
-});
-
+ 
 
 // const fetchReservation = (data) => async (dispatch) => {
 //   await fetch(CREATE_RESERVATION_LINK, {
