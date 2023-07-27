@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home component renders correctly 1`] = `
+<section
+  className="main-page-section"
+>
+  <div
+    className="heading"
+  >
+    <h1>
+      AWESOME LAPTOPS
+    </h1>
+  </div>
+  <div
+    className="divider"
+  >
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+    <div
+      className="divider-bullet"
+    />
+  </div>
+  <div
+    className="no-items-available"
+  >
+    <div>
+       There are no laptops currently available
+    </div>
+  </div>
+</section>
+`;
