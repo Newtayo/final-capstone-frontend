@@ -1,10 +1,11 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Reservations = () => {
   const isLoggedIn = JSON.parse(window.localStorage.getItem('logged_in'));
   const navigate = useNavigate();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     if (!isLoggedIn) {
@@ -35,9 +36,10 @@ const Reservations = () => {
     return dateA - dateB;
   };
 
-  let reservations = useSelector((state) => state.users.reservations);
-  const laptops = useSelector((state) => state.laptops.laptops);
+  let reservations = useSelector((state) => state.reservations.reservations);
+  console.log(reservations);
 
+  const laptops = useSelector((state) => state.laptops.laptops);
   if (isLoggedIn) {
     reservations = reservations.sort(sortReservations);
     return (
@@ -94,6 +96,7 @@ const Reservations = () => {
       </section>
     );
   }
+
   return (
     <div className="popup-message">
       <p>Please log in to access this page</p>

@@ -9,7 +9,7 @@ const CREATE_RESERVATION_LINK = 'http://127.0.0.1:3000/api/v1/reservation';
 // const REMOVE_RESERVATIONS = 'reservations/reservations/REMOVE_RESERVATIONS';
 
 export const userSession = createAsyncThunk('users/fetchUsers', async (data) => {
-  const response = await fetch(`http://127.0.0.1:3000/api/v1/${data.endpoint}`,{
+  const response = await fetch(`http://127.0.0.1:3000/api/v1/${data.endpoint}`, {
     method: 'POST',
     body: JSON.stringify(data.obj),
     headers: {
@@ -36,9 +36,7 @@ const userReducer = createSlice({
   name: 'users',
   initialState,
   reducers: {
-    logout: () => {
-      return initialState;
-    }
+    logout: () => initialState,
   },
   extraReducers: (builder) => {
     builder
@@ -56,13 +54,8 @@ const userReducer = createSlice({
       }));
   },
 });
-    // builder.addCase(userSession.fulfilled, (state, action) => ({
-    //   ...state,
-    //   messages: action.payload,
-    // }));
- 
 
-// const fetchReservation = (data) => async (dispatch) => {
+// export const fetchReservation = (data) => async (dispatch) => {
 //   await fetch(CREATE_RESERVATION_LINK, {
 //     method: 'post',
 //     headers: {
@@ -78,6 +71,6 @@ const userReducer = createSlice({
 //       };
 //       dispatch(setReservationAction(result));
 //     });
-// };
+
 export const { logout } = userReducer.actions;
 export default userReducer.reducer;

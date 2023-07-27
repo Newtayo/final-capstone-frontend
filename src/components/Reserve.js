@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { fetchReservation, setMsgAction } from '../redux/user/sessionSlice';
+import { addReservation, setMsgAction } from '../redux/reservation/reservationSlice';
 
 const Reserve = () => {
   const { laptops } = useSelector((state) => state.laptops);
@@ -91,7 +91,7 @@ const Reserve = () => {
       setErrorMessage('All fields are required');
       return;
     }
-    dispatch(fetchReservation({
+    dispatch(addReservation({
       city, hour, date, laptop_id: laptopId, user_id: user.id,
     }));
   };
