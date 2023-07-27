@@ -5,8 +5,8 @@ import { addReservation, setMsgAction } from '../redux/reservation/reservationSl
 
 const Reserve = () => {
   const { laptops } = useSelector((state) => state.laptops);
-  const { creationMsg, user } = useSelector((state) => state.users);
-
+  const { creationMsg } = useSelector((state) => state.users);
+  const user = JSON.parse(window.localStorage.getItem('user'));
   const isLoggedIn = JSON.parse(window.localStorage.getItem('logged_in'));
 
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ const Reserve = () => {
   useEffect(() => {
     if (!isLoggedIn) {
       setTimeout(() => {
-        navigate('/user/login');
+        navigate('/');
       }, 2000);
     }
     if (creationMsg === 'Reservation has been created successfully!') {
@@ -92,8 +92,9 @@ const Reserve = () => {
       return;
     }
     dispatch(addReservation({
-      city, hour, date, laptop_id: laptopId, user_id: user.id,
+      city, hour, date, laptop_id: laptopId, user_id: user,
     }));
+    navigate('/reservations');
   };
 
   const getCurrentDate = () => new Date().toJSON().slice(0, 10);

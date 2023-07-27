@@ -1,13 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-// Actions
-// const FULLFILED = 'quickmaths-frontend/user/user-signup/FULLFILED';
-// const LOGOUT = 'quickmaths-frontend/user/user-signup/LOGOUT';
-// const ADD_RESERVATION = 'reservations/reseravtions/ADD_RESERVATION';
-// const REMOVE_MSG = 'reservations/reservations/REMOVE_MSG';
-const CREATE_RESERVATION_LINK = 'http://127.0.0.1:3000/api/v1/reservation';
-// const REMOVE_RESERVATIONS = 'reservations/reservations/REMOVE_RESERVATIONS';
-
 export const userSession = createAsyncThunk('users/fetchUsers', async (data) => {
   const response = await fetch(`http://127.0.0.1:3000/api/v1/${data.endpoint}`, {
     method: 'POST',
@@ -22,21 +14,23 @@ export const userSession = createAsyncThunk('users/fetchUsers', async (data) => 
   }
   return userData;
 });
-// Initial state
 const initialState = {
   user: {},
   reservations: [],
   message: '',
   creationMsg: '',
+
   logged_in: false,
 };
 
-// Reducer
 const userReducer = createSlice({
   name: 'users',
   initialState,
   reducers: {
     logout: () => initialState,
+    setUserName: (state, action) => {
+      state.user.name = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -55,22 +49,5 @@ const userReducer = createSlice({
   },
 });
 
-// export const fetchReservation = (data) => async (dispatch) => {
-//   await fetch(CREATE_RESERVATION_LINK, {
-//     method: 'post',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(data),
-//   })
-//     .then((result) => result.json())
-//     .then((res) => {
-//       const result = {
-//         msg: res.message,
-//         newReservation: res.reservation_obj,
-//       };
-//       dispatch(setReservationAction(result));
-//     });
-
-export const { logout } = userReducer.actions;
+export const { logout, setUserName } = userReducer.actions;
 export default userReducer.reducer;

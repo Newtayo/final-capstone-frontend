@@ -48,7 +48,6 @@ const Signup = () => {
       localStorage.setItem('user', userData.user.username);
     }
     if (localStorage.getItem('logged_in') === 'true') {
-      const user = localStorage.getItem('user');
       if (!userData) {
         dispatch(userSession({ obj: { username: usernameState }, endpoint: 'login' }));
       }

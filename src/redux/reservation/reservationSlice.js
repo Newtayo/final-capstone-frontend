@@ -1,9 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const CREATE_RESERVATION_LINK = 'http://127.0.0.1:3000/api/v1/reservation';
+const CREATE_RESERVATION_LINK = 'http://127.0.0.1:3000/api/v1/reservations/';
 
-// Async Thunk
 export const addReservation = createAsyncThunk('reservations/addReservation', async (data) => {
   const response = await axios.post(CREATE_RESERVATION_LINK, data, {
     headers: {
@@ -17,15 +16,34 @@ export const addReservation = createAsyncThunk('reservations/addReservation', as
   return reservationData;
 });
 
-const initialState = {
-  reservations: [],
-  message: '',
-  creationMsg: '',
-};
+export const fetchReservations = createAsyncThunk('reservations/fetchReservations', async () => {
+  const response = await axios.get(CREATE_RESERVATION_LINK, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const { data } = response;
+  const reservationList = data.map((reservation) => ({
+    id: reservation.id,
+    date: reservation.date,
+    hour: reservation.hour,
+    city: reservation.city,
+    laptop_id: reservation.laptop_id,
+    user_id: reservation.user_id,
+  }));
+
+  return reservationList;
+});
 
 const reservationsSlice = createSlice({
   name: 'reservations',
-  initialState,
+  initialState: {
+    reservationsList: [],
+    creationMsg: '',
+    loading: false, // Add loading state
+    error: null, // Add error state
+  },
   reducers: {
     setMsgAction: (state, action) => {
       state.creationMsg = action.payload;
@@ -44,12 +62,23 @@ const reservationsSlice = createSlice({
           state.creationMsg = action.payload.msg;
         }
       })
-      .addCase(addReservation.rejected, (state, action) => {
+      .addCase(addReservation.rejected, (state) => {
         state.creationMsg = 'Failed to add reservation';
+      })
+      .addCase(fetchReservations.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchReservations.fulfilled, (state, action) => {
+        state.loading = false;
+        state.reservationsList = action.payload;
+      })
+      .addCase(fetchReservations.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
       });
   },
 });
 
 export const { setMsgAction, setRemoveReservationsAction } = reservationsSlice.actions;
-
 export default reservationsSlice.reducer;

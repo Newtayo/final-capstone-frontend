@@ -1,11 +1,16 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import Carousel from './Carousel';
+import { fetchLaptops } from '../redux/laptop/laptopSlice';
 
 const Home = () => {
+  const dispatch = useDispatch();
   const { laptops } = useSelector((state) => state.laptops);
   const isLoggedIn = useSelector((state) => state.users.logged_in);
-
+  useEffect(() => {
+    dispatch(fetchLaptops());
+  }, [dispatch, laptops]);
   return (
     <section className="main-page-section">
       <div className="heading">
