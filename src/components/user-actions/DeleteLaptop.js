@@ -18,6 +18,7 @@ const DeleteLaptop = () => {
   const removeData = (e) => {
     const id = Number(e.target.value);
     dispatch(destroyLaptop(id));
+    redirection('/');
   };
 
   if (isLoggedIn) {

@@ -21,7 +21,7 @@ const Login = () => {
       setValidDisplayState(true);
       setExistState(false);
     } else {
-      dispatch(userSession({ username: usernameState }, 'login'));
+      dispatch(userSession({ obj: { username: usernameState }, endpoint: 'login' }));
     }
   };
   const setUsername = (e) => {
@@ -38,12 +38,12 @@ const Login = () => {
     if (userData.logged_in === true) {
       setExistState(false);
       localStorage.setItem('logged_in', true);
-      localStorage.setItem('user', userData.user.username);
+
+      localStorage.setItem('user', userData.user.user.id);
     }
     if (localStorage.getItem('logged_in') === 'true') {
-      const user = localStorage.getItem('user');
       if (!userData) {
-        dispatch(userSession({ username: user }, 'login'));
+        dispatch(userSession({ obj: { username: usernameState }, endpoint: 'login' }));
       }
       redirection('home');
     }

@@ -1,12 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import laptopReducer from './laptop/laptopSlice';
-import userReducer from './user/sessionSlice';
+import rootReducer from './reducer';
 
 const store = configureStore({
-  reducer: {
-    laptops: laptopReducer,
-    users: userReducer,
-  },
+  reducer: rootReducer,
+  // Other middleware and store configuration can be added here
 });
 
 export default store;

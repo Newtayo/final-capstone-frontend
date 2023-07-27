@@ -96,7 +96,7 @@ const Nav = () => {
         ) : (
 
           <NavLink
-            to="/user/login"
+            to="/"
             onClick={toggleMenu}
           >
             <button className="login-button" type="button">
