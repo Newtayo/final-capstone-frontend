@@ -27,7 +27,7 @@ const Signup = () => {
       setValidDisplayState(true);
       setExistState(false);
     } else if (usernameState.length >= 6) {
-      dispatch(userSession({ username: usernameState }));
+      dispatch(userSession({ obj:{username: usernameState}, endpoint: 'signup' }));
     }
   };
 
@@ -50,7 +50,7 @@ const Signup = () => {
     if (localStorage.getItem('logged_in') === 'true') {
       const user = localStorage.getItem('user');
       if (!userData) {
-        dispatch(userSession({ username: user }, 'login'));
+        dispatch(userSession({ obj:{username: usernameState}, endpoint:'login'}));
       }
       redirection('/');
     }

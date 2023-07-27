@@ -8,10 +8,10 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const CREATE_RESERVATION_LINK = 'http://127.0.0.1:3000/api/v1/reservation';
 // const REMOVE_RESERVATIONS = 'reservations/reservations/REMOVE_RESERVATIONS';
 
-export const userSession = createAsyncThunk('users/fetchUsers', async () => {
-  const response = await fetch(`http://127.0.0.1:3000/api/v1/${endpoint}`,{
+export const userSession = createAsyncThunk('users/fetchUsers', async (data) => {
+  const response = await fetch(`http://127.0.0.1:3000/api/v1/${data.endpoint}`,{
     method: 'POST',
-    body: JSON.stringify(obj),
+    body: JSON.stringify(data.obj),
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
@@ -34,7 +34,11 @@ const initialState = {
 const userReducer = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    logout: () => {
+      return initialState;
+    }
+  },
   extraReducers: (builder) => {
     builder
       .addCase(userSession.fulfilled, (state, action) => ({
@@ -73,5 +77,5 @@ const userReducer = createSlice({
 //       dispatch(setReservationAction(result));
 //     });
 // };
-
-export default userReducer;
+export const { logout } = userReducer.actions;
+export default userReducer.reducer;

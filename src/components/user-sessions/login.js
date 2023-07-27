@@ -21,7 +21,7 @@ const Login = () => {
       setValidDisplayState(true);
       setExistState(false);
     } else {
-      dispatch(userSession({ username: usernameState }, 'login'));
+      dispatch(userSession({ obj:{username: usernameState}, endpoint:'login'}));
     }
   };
   const setUsername = (e) => {
@@ -43,7 +43,7 @@ const Login = () => {
     if (localStorage.getItem('logged_in') === 'true') {
       const user = localStorage.getItem('user');
       if (!userData) {
-        dispatch(userSession({ username: user }, 'login'));
+        dispatch(userSession({ obj:{username: usernameState}, endpoint:'login'}));
       }
       redirection('home');
     }
