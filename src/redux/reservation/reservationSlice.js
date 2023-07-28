@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const CREATE_RESERVATION_LINK = 'http://127.0.0.1:3000/api/v1/reservations/';
+const CREATE_RESERVATION_LINK = 'https://laptopreservation.onrender.com/api/v1/reservations/';
 
 export const addReservation = createAsyncThunk('reservations/addReservation', async (data) => {
   const response = await axios.post(CREATE_RESERVATION_LINK, data, {

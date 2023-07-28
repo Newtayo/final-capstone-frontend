@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { setRemoveReservationsAction } from '../reservation/reservationSlice';
 
-const LINK = 'http://127.0.0.1:3000/api/v1/laptops';
+const LINK = 'https://laptopreservation.onrender.com/api/v1/laptops';
 
 const initialState = {
   laptops: [],
@@ -53,7 +53,7 @@ export const addLaptop = createAsyncThunk('laptops/addLaptop', async (obj) => {
 });
 
 export const destroyLaptop = createAsyncThunk('laptops/destroyLaptop', async (id, { dispatch }) => {
-  const response = await axios.delete(`http://127.0.0.1:3000/api/v1/laptops/${id}`, {
+  const response = await axios.delete(`https://laptopreservation.onrender.com/api/v1/laptops/${id}`, {
     headers: {
       'Content-type': 'application/json; charset=UTF-8',
     },
