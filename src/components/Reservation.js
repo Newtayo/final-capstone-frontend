@@ -15,10 +15,10 @@ const Reservations = () => {
     dispatch(fetchReservations());
     if (!isLoggedIn) {
       setTimeout(() => {
-        navigate('/user/login');
+        navigate('/');
       }, 2000);
     }
-  }, [dispatch, isLoggedIn, navigate, laptops]);
+  }, [dispatch, isLoggedIn, navigate, laptops, reservationsList]);
 
   const sortReservations = (a, b) => {
     const dateA = new Date(a.date);
